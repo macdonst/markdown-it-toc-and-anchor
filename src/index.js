@@ -1,5 +1,4 @@
 import clone from "clone";
-import uslug from "uslug";
 import Token from "markdown-it/lib/token";
 
 const TOC = "@[toc]";
@@ -8,6 +7,8 @@ const TOC_RE = /^@\[toc\]/im;
 let markdownItSecondInstance = () => {};
 let headingIds = {};
 let tocHtml = "";
+
+const slugify = (s) => escape(String(s).trim().toLowerCase().replace(/\s+/g, '-').replace(/\(\)/g, ''))
 
 const repeat = (string, num) => new Array(num + 1).join(string);
 
@@ -177,7 +178,7 @@ export default function(md, options) {
     let tocTokens = [];
 
     const slugifyFn =
-      (typeof options.slugify === "function" && options.slugify) || uslug;
+      (typeof options.slugify === "function" && options.slugify) || slugify;
 
     for (let i = 0; i < tokens.length; i++) {
       if (tokens[i].type !== "heading_close") {

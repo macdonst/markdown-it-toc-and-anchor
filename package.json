@@ -11,7 +11,7 @@
   ],
   "author": "Maxime Thirouin",
   "license": "MIT",
-  "repository": "https://github.com/medfreeman/markdown-it-toc-and-anchor.git",
+  "repository": "https://github.com/macdonst/markdown-it-toc-and-anchor.git",
   "main": "dist/index.js",
   "files": [
     "dist",
@@ -19,8 +19,7 @@
     "!**/__tests__"
   ],
   "dependencies": {
-    "clone": "^2.1.0",
-    "uslug": "^1.0.4"
+    "clone": "^2.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -37,7 +36,7 @@
     "standard-version": "^4.4.0"
   },
   "scripts": {
-    "lint": "eslint --ignore-path .gitignore --fix .",
+    "lint": "eslint --ignore-path .eslintignore --fix .",
     "tests": "ava",
     "pretest": "npm -s run lint",
     "test": "npm -s run tests",
@@ -45,7 +44,7 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "babel src --ignore \"src/__tests__/**/*.js\" --out-dir dist --delete-dir-on-start",
     "release": "standard-version; git push --follow-tags",
-    "prepare": "yarn build"
+    "prepare": "npm build"
   },
   "babel": {
     "presets": [
