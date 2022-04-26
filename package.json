@@ -44,7 +44,7 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "babel src --ignore \"src/__tests__/**/*.js\" --out-dir dist --delete-dir-on-start",
     "release": "standard-version; git push --follow-tags",
-    "prepare": "npm build"
+    "prepare": "npm run build"
   },
   "babel": {
     "presets": [
